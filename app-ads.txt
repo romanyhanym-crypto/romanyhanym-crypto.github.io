@@ -1,4 +1,13 @@
+# Google AdMob
 google.com, pub-5412255901111335, DIRECT, f08c47fec0942fa0
-unity3d.com, 5283457, DIRECT, 5081c313a218d69e
-ironsrc.com, 675689, DIRECT, b226e382d4f8206d
-inmobi.com, 5d06a130301a4a96ac81df731f62f6be, DIRECT, 893f36ee997fb0fb
+
+# Unity Ads (Android & iOS)
+unity3d.com, 800359027, DIRECT, b125f7f1af23b5d1
+unity3d.com, 800385047, DIRECT, b125f7f1af23b5d1
+
+# ironSource
+ironsrc.com, 27b3ea3fd, DIRECT, b226e382d4f8206d
+ironsrc.com, 286c6436d, DIRECT, b226e382d4f8206d
+
+# InMobi
+inmobi.com, 5d06a130301a4a96ac81df731f62f6be, DIRECT, f08c47fec0942fa0
