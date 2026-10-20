@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I am Christian - Support & Privacy</title>
+    <title>I am Christian - Support & Privacy Policy</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -18,13 +18,16 @@
         }
         .card {
             background: #ffffff;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             padding: 40px;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: center;
             position: relative;
+            text-align: left;
+        }
+        .card[dir="rtl"] {
+            text-align: right;
         }
         .lang-btn {
             position: absolute;
@@ -42,16 +45,20 @@
         .lang-btn:hover {
             background: #0056b3;
         }
-        h1 {
+        h1, h2 {
             color: #1c1c1e;
-            font-size: 24px;
-            margin-top: 20px;
-            margin-bottom: 12px;
         }
-        p {
+        p, li {
             line-height: 1.6;
             color: #48484a;
-            font-size: 16px;
+            font-size: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .card[dir="rtl"] ul {
+            padding-right: 20px;
+            padding-left: 0;
         }
         .contact-box {
             margin-top: 25px;
@@ -59,6 +66,7 @@
             background: #f2f2f7;
             border-radius: 10px;
             font-weight: 500;
+            text-align: center;
         }
         .contact-box a {
             color: #007aff;
@@ -68,26 +76,42 @@
 </head>
 <body>
 
-    <div class="card">
+    <div class="card" id="mainCard">
         <!-- Language Switch Button -->
         <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
 
         <!-- English Content (Default) -->
         <div id="content-en">
-            <h1>I am Christian - App Support</h1>
-            <p>Welcome to the official support page for the "I am Christian" application. We are here to assist you with any technical issues, inquiries regarding subscriptions, account management, or app content.</p>
+            <h1>I am Christian - Support & Privacy Policy</h1>
+            <p>Welcome to the official support and privacy page for the "I am Christian" application.</p>
+            
+            <h2>Privacy Policy</h2>
+            <p><strong>1. Information Collection and Use:</strong> Our app values your privacy. We do not collect personally identifiable information directly, except for secure account creation and synchronization managed via Firebase Authentication.</p>
+            <p><strong>2. App Permissions:</strong> Push Notifications (for daily verses and reminders) and Network Access (to load audio and sync data).</p>
+            <p><strong>3. Subscriptions:</strong> Premium subscriptions and financial transactions are securely handled through App Store / Google Play Billing and RevenueCat.</p>
+            <p><strong>4. Third-Party Services:</strong> We use Firebase, AdMob, and RevenueCat to optimize app functionality and secure user sessions.</p>
+            <p><strong>6. Children’s Privacy:</strong> Our services do not knowingly collect data from anyone under 13.</p>
+
             <div class="contact-box">
-                Need help? Contact Support at:<br>
+                Need help or data deletion requests? Contact us at:<br>
                 <a href="mailto:romanyhanym@gmail.com">romanyhanym@gmail.com</a>
             </div>
         </div>
 
         <!-- Arabic Content (Hidden initially) -->
         <div id="content-ar" style="display: none;" dir="rtl">
-            <h1>تطبيق أنا مسيحي - الدعم الفني</h1>
-            <p>أهلاً بك في صفحة الدعم الفني الرسمية الخاصة بالتطبيق. نحن هنا لمساعدتك في حال واجهتك أي مشكلة تقنية أو استفسار بخصوص الاشتراكات، الحساب، أو محتوى التطبيق.</p>
+            <h1>تطبيق أنا مسيحي - الدعم الفني وسياسة الخصوصية</h1>
+            <p>أهلاً بك في صفحة الدعم الفني وسياسة الخصوصية الرسمية الخاصة بالتطبيق.</p>
+            
+            <h2>سياسة الخصوصية</h2>
+            <p><strong>1. جمع البيانات واستخدامها:</strong> يقدّر التطبيق خصوصيتك. نحن لا نجمع معلومات شخصية مباشرة إلا لإنشاء حساب آمن والمزامنة عبر Firebase Authentication.</p>
+            <p><strong>2. أذونات التطبيق:</strong> الإشعارات (لإرسال الآيات اليومية والصلوات) والاتصال بالشبكة (لتحميل المحتوى الصوتي).</p>
+            <p><strong>3. الاشتراكات والمشتريات:</strong> تتم معالجة المعاملات المالية للاشتراكات المدفوعة بشكل آمن عبر أنظمة الدفع في المتاجر الرسمية و RevenueCat.</p>
+            <p><strong>4. خدمات الطرف الثالث:</strong> نستخدم خدمات مثل Firebase و AdMob و RevenueCat لتحسين تجربة الاستخدام.</p>
+            <p><strong>6. خصوصية الأطفال:</strong> لا نقوم عن قصد بجمع بيانات من الأطفال دون سن 13 عاماً.</p>
+
             <div class="contact-box">
-                للتواصل والدعم الفني يرجى مراسلتنا عبر البريد:<br>
+                للتواصل والدعم الفني أو طلب حذف الحساب يرجى مراسلتنا عبر البريد:<br>
                 <a href="mailto:romanyhanym@gmail.com">romanyhanym@gmail.com</a>
             </div>
         </div>
@@ -100,15 +124,18 @@
             const contentEn = document.getElementById('content-en');
             const contentAr = document.getElementById('content-ar');
             const langBtn = document.getElementById('langBtn');
+            const mainCard = document.getElementById('mainCard');
 
             if (currentLang === 'en') {
                 contentEn.style.display = 'none';
                 contentAr.style.display = 'block';
+                mainCard.setAttribute('dir', 'rtl');
                 langBtn.innerText = 'English';
                 currentLang = 'ar';
             } else {
                 contentAr.style.display = 'none';
                 contentEn.style.display = 'block';
+                mainCard.removeAttribute('dir');
                 langBtn.innerText = 'العربية';
                 currentLang = 'en';
             }
