@@ -1,22 +1,119 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أنا مسيحي - الدعم الفني</title>
+    <title>I am Christian - Support & Privacy</title>
     <style>
-        body { font-family: Tahoma, sans-serif; text-align: center; padding: 50px; background: #f9f9f9; color: #333; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; }
-        p { line-height: 1.6; }
-        .contact { margin-top: 20px; font-weight: bold; color: #2980b9; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+        .card {
+            background: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+        }
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .lang-btn:hover {
+            background: #0056b3;
+        }
+        h1 {
+            color: #1c1c1e;
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+        p {
+            line-height: 1.6;
+            color: #48484a;
+            font-size: 16px;
+        }
+        .contact-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f2f2f7;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        .contact-box a {
+            color: #007aff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>تطبيق أنا مسيحي (I am Christian)</h1>
-        <p>أهلاً بك في صفحة الدعم الفني الرسمية الخاصة بالتطبيق. نحن هنا لمساعدتك في حال واجهتك أي مشكلة تقنية أو استفسار بخصوص الاشتراكات، الحساب، أو محتوى التطبيق.</p>
-        <p class="contact">للتواصل والدعم الفني، يراسلنا على البريد الإلكتروني:<br>romanyhanym@gmail.com</p>
+
+    <div class="card">
+        <!-- Language Switch Button -->
+        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
+
+        <!-- English Content (Default) -->
+        <div id="content-en">
+            <h1>I am Christian - App Support</h1>
+            <p>Welcome to the official support page for the "I am Christian" application. We are here to assist you with any technical issues, inquiries regarding subscriptions, account management, or app content.</p>
+            <div class="contact-box">
+                Need help? Contact Support at:<br>
+                <a href="mailto:romanyhanym@gmail.com">romanyhanym@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- Arabic Content (Hidden initially) -->
+        <div id="content-ar" style="display: none;" dir="rtl">
+            <h1>تطبيق أنا مسيحي - الدعم الفني</h1>
+            <p>أهلاً بك في صفحة الدعم الفني الرسمية الخاصة بالتطبيق. نحن هنا لمساعدتك في حال واجهتك أي مشكلة تقنية أو استفسار بخصوص الاشتراكات، الحساب، أو محتوى التطبيق.</p>
+            <div class="contact-box">
+                للتواصل والدعم الفني يرجى مراسلتنا عبر البريد:<br>
+                <a href="mailto:romanyhanym@gmail.com">romanyhanym@gmail.com</a>
+            </div>
+        </div>
     </div>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            const contentEn = document.getElementById('content-en');
+            const contentAr = document.getElementById('content-ar');
+            const langBtn = document.getElementById('langBtn');
+
+            if (currentLang === 'en') {
+                contentEn.style.display = 'none';
+                contentAr.style.display = 'block';
+                langBtn.innerText = 'English';
+                currentLang = 'ar';
+            } else {
+                contentAr.style.display = 'none';
+                contentEn.style.display = 'block';
+                langBtn.innerText = 'العربية';
+                currentLang = 'en';
+            }
+        }
+    </script>
+
 </body>
 </html>
